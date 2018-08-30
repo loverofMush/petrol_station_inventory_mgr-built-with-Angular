@@ -1,0 +1,47 @@
+
+  <!--== breadcrumbs ==-->
+  <div class="page_content_inner">
+    <ul>
+      <li><a href="main.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a> </li>
+      <li class="active-bre"><a href="#"> Users</a> </li>
+      <li class="page-back"><a href="#"><i class="fa fa-backward" aria-hidden="true"></i> Back</a> </li>
+    </ul>
+  </div>
+  <div class="page-card page-card-admin">
+    <div class="page-card-com page-card-main">
+      <h4>All Users</h4>
+      <div class="tab-inn ad-tab-inn">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Station</th>
+                <th>Email</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let station of stations">
+                <td>
+                  <input type="checkbox" class="filled-in" id="filled-in-box-1">
+                  <label for="filled-in-box-1"></label>
+                </td>
+                <td>{{station.users[0].id}}</td>
+                <td>{{station.users[0].name}}</td>
+                <td>{{station.name}}</td>
+                <td>{{station.users[0].email}}</td>
+                <td>
+                  <a href=#>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>  
+    </div>
+  </div>

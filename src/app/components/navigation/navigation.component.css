@@ -1,0 +1,19 @@
+.kifasf {
+    box-shadow: 0pc 0.125pc 5px rgba(0,0,0,.22);
+    background-color: #17a2b8 !important;
+    z-index: 999;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0rem 2rem 0rem 0rem !important;
+}
+
+.navbar-brand {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}

@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="mt-4 col-sm-8">
+    <div class="page-card page-card-admin">
+      <div class="page-card-com page-card-main">
+        <h4>All Suppliers</h4> 
+        <div class="split-row">
+          <div class="col-md-12">
+            <div class="box-inn-sp ad-inn-page">
+              <div class="tab-inn ad-tab-inn">
+                <div class="table-responsive">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                    <thead>
+                      <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                          style="width: 202px;">Supplier
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Supplier Code
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 50px;">Edit
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 50px;">Delete
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody> 
+                      <tr role="row" class="odd" *ngFor="let dealer of dealers">
+                        <td><span class="list">{{dealer.name}}</span></td>
+                        <td><span class="list">{{dealer.code }}</span></td>
+                        <td><a routerLink="./{{dealer.id}}"><i class="fa fa-edit"></i></a></td>
+                        <td><a (click)="delete(dealer)"><i class="fa fa-trash"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+

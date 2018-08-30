@@ -1,0 +1,124 @@
+
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Add new Sales</h4> 
+  
+    <div class="row">
+      <div class="mt-4 col-sm-4" *ngIf="product!=null">
+        <div class="card">
+          <div class="card-header">New {{product.code}} Sale</div>
+          <div class="card-body">
+            <form #salesForm="ngForm" (ngSubmit)="saveSale()">
+              <mat-form-field style="border-left: 0px;">
+                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.date_sold"  [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+              <hr/>
+              <div class="form-group row" [hidden]="product">
+                <label for="inputProduct1" class="col-sm-2 col-form-label">Product</label>
+                <div class="col-sm-10">
+                  <input type="text" name="wet_product_id" class="form-control" id="inputProduct1" [(ngModel)]="form.wet_product_id" required>
+                </div>
+              </div>
+              <div class="form-group row" style="width: 150px;">
+                <label for="inputPrice1" class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                  <input type="text" name="selling_price" class="form-control" id="inputPrice1" [(ngModel)]="form.selling_price" required disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSelect2" class="col-sm-2 col-form-label">Sales Attendant</label>
+                <select class="form-control" name="dry_product_sub_id" [(ngModel)]="form.sales_attendant">
+                  <option [ngValue]="null" disabled>-Select an attendant-</option>
+                  <option *ngFor="let employee of employees" [value]="employee.lastName">
+                    {{employee.lastName}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group row">
+                  <label for="inputPump1" class="col-sm-2 col-form-label">Pump Number</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="pump_code" class="form-control" id="inputPump1" [(ngModel)]="form.pump_code" required>
+                  </div>
+                </div>
+              <div class="form-group row">
+                <label for="inputMetre1" class="col-sm-2 col-form-label">Opening Metre</label>
+                <div class="col-sm-10">
+                  <input type="text" name="opening_metre" class="form-control" id="inputMetre1" [(ngModel)]="form.opening_metre" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputMetre2" class="col-sm-2 col-form-label">Closing Metre</label>
+                <div class="col-sm-10">
+                  <input type="text" name="closing_metre" (change)="litres_sold($event)" class="form-control" id="inputMetre2" [(ngModel)]="form.closing_metre" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputLitres1" class="col-sm-2 col-form-label">Litres Sold</label>
+                <div class="col-sm-10">
+                  <input type="text" name="litres_sold" class="form-control" id="inputCash1" [(ngModel)]="form.litres_sold" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputCash1" class="col-sm-2 col-form-label">Cash Amount</label>
+                <div class="col-sm-10">
+                  <input type="text" name="cash_amt" class="form-control" id="inputCash1" [(ngModel)]="form.cash_amt" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                  <button type="submit" class="btn btn-primary" [disabled]="!salesForm.valid">Add Sale</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 col-sm-8">
+        <div class="page-card page-card-admin">
+          <div class="page-card-com page-card-main">
+            <h4>Day sales</h4> 
+            <!-- Dropdown Structure -->
+            <div class="split-row">
+              <div class="col-md-12">
+                <div class="box-inn-sp ad-inn-page">
+                  <div class="tab-inn ad-tab-inn">
+                    <div class="table-responsive" style="overflow: hidden">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Sales Attendant</th>
+                            <th>Pump Number</th>
+                            <th>Opening Metre</th>
+                            <th>Closing Metre</th>
+                            <th>Litres Sold</th>
+                            <th>Amount Sold</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let sale of sales">
+                            <td><span class="list-img">{{sale.sales_attendant}}</span></td>
+                            <td><span class="list-img">{{sale.pump_code}}</span></td>
+                            <td><span class="list-img">{{sale.opening_metre}}</span></td>
+                            <td><span class="list-img">{{sale.closing_metre}}</span></td>
+                            <td><span class="list-img">{{sale.litres_sold}}</span></td>
+                            <td><span class="label label-primary">{{sale.cash_amt | currency: '₦'}}</span></td>
+                          </tr>
+                        </tbody>
+                        <hr/>
+                        <figure>Total Litres Sold: <span>{{totalLitres() | number}}</span></figure>
+                        <figure>Total Cash Amount: <span>{{totalSales() | currency: '₦'}}</span></figure>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

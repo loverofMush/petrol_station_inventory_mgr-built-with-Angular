@@ -1,0 +1,104 @@
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Add new Sales</h4> 
+  
+    <div class="row">
+      <div class="mt-4 col-sm-4">
+        <div class="card">
+          <div class="card-header">New Dry Product Sale</div>
+          <div class="card-body">
+            <form #drySalesForm="ngForm" (ngSubmit)="saveSale(drySalesForm)">
+              <mat-form-field style="border-left: 0px;">
+                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.date_sold"  [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+              <hr/>
+              <div class="form-group row">
+                <label for="inputSelect2" class="col-sm-2 col-form-label">Product</label>
+                <select class="form-control" name="wet_product_id" [class.selected]="product === selectedProduct" [(ngModel)]="form.dry_product_sub_id" (change)="productChange($event)">
+                  <option [ngValue]="null" disabled>-Select a product-</option>
+                  <option id="product.id" *ngFor="let product of products" [value]="product.id">
+                    {{product.name}}
+                  </option>
+                </select>
+              </div>
+              <input type="text" name="product_code" class="form-control" id="inputProd1" [(ngModel)]="form.dry_code" required hidden>
+              <input type="text" name="sub_id" class="form-control" id="inputSub1" [(ngModel)]="form.dry_product_id" required hidden>
+              <div class="form-group row" *ngIf="product!=null">
+                <label for="inputSelect3" class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                  <input type="text" name="selling_price" class="form-control" id="inputSelect3" [(ngModel)]="form.selling_price" required disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSelect2" class="col-sm-2 col-form-label">Sales Attendant</label>
+                <select class="form-control" name="dry_product_sub_id" [(ngModel)]="form.sales_attendant">
+                  <option [ngValue]="null" disabled>-Select an attendant-</option>
+                  <option *ngFor="let employee of employees" [value]="employee.lastName">
+                    {{employee.lastName}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group row">
+                <label for="inputLitres1" class="col-sm-2 col-form-label">Number Sold</label>
+                <div class="col-sm-10">
+                  <input type="text" name="quantity_sold" (change)="litres_sold($event)" class="form-control" id="inputCash1" [(ngModel)]="form.quantity_sold" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputCash1" class="col-sm-2 col-form-label">Amount</label>
+                <div class="col-sm-10">
+                  <input type="text" name="cash_amt" class="form-control" id="inputCash1" [(ngModel)]="form.cash_amt" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                  <button type="submit" class="btn btn-primary" [disabled]="!drySalesForm.valid">Add Sale</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 col-sm-8">
+        <div class="page-card page-card-admin">
+          <div class="page-card-com page-card-main">
+            <h4>Day sales</h4> 
+            <!-- Dropdown Structure -->
+            <div class="split-row">
+              <div class="col-md-12">
+                <div class="box-inn-sp ad-inn-page">
+                  <div class="tab-inn ad-tab-inn">
+                    <div class="table-responsive" style="overflow: hidden">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Sales Attendant</th>
+                            <th>Product Name</th>
+                            <th>Number Sold</th>
+                            <th>Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let sale of sales">
+                            <td><span>{{sale.sales_attendant}}</span></td>
+                            <td><span class="list-img">{{sale.dry_code}}</span></td>
+                            <td><span class="list-img">{{sale.quantity_sold}}</span></td>
+                            <td><span class="label label-primary">{{sale.cash_amt | currency: '₦'}}</span></td>
+                          </tr>
+                        </tbody>
+                        <hr/>
+                        <figure>Total Cash Amount: <span>{{totalSales() | currency: '₦'}}</span></figure>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

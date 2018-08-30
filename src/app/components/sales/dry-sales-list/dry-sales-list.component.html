@@ -1,0 +1,65 @@
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Day Sales</h4> 
+    <div class="split-row">
+      <div class="col-md-12">
+        <div class="box-inn-sp ad-inn-page">
+          <div class="tab-inn ad-tab-inn">
+            <div class="table-responsive" style="overflow: hidden">
+              <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                <thead>
+                  <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Sales Attendant
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Product
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Number Sold
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Price
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" 
+                      style="width: 207px;">Amount
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 148px;">Date Sold
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 50px;">Edit
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 50px;">Delete
+                    </th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr role="row" class="odd" *ngFor="let sale of sales">
+                    <td>{{sale.sales_attendant}}</td>
+                    <td class="sorting_1">{{sale.dry_code}}</td>
+                    <td class="sorting_1">{{sale.quantity_sold}}</td>
+                    <td>{{sale.selling_price | currency: '₦'}}</td>
+                    <td>{{sale.cash_amt | currency: '₦'}}</td>
+                    <td>{{sale.date_sold}}</td>
+                    <td><a routerLink="./edit-dry-sale/{{sale.id}}"><i class="fa fa-edit"></i></a></td>
+                    <td><a (click)="deleteSale(sale)"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

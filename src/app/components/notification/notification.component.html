@@ -1,0 +1,11 @@
+<div [class]="notification.alertType.style" *ngIf="notification.messageAvailable">
+  <div class="container-fluid">
+    <div class="alert-icon">
+    <i class="material-icons">{{ notification.alertType.icon }}</i>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="notification.clearMessage()">
+    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+    </button>
+    <b>{{ notification.title }}:</b> {{ notification.message }}
+  </div>
+</div>

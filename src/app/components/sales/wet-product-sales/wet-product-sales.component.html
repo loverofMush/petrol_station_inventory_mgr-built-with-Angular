@@ -1,0 +1,78 @@
+
+<div class="row">
+  <div class="mt-4 col-sm-8">
+    <div class="page-card page-card-admin">
+      <div class="page-card-com page-card-main">
+        <h4>All Wet Product Sales</h4> 
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label for="inputSelect2" class="col-sm-2 col-form-label">Select outlet Station</label>
+              <select class="form-control" name="station" [class.selected]="station === selectedStation" (change)="stationChange($event)">
+                <option [ngValue]="null" disabled>-Select a station-</option>
+                <option *ngFor="let station of stations" [value]="station.id">
+                  {{station.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label for="inputTank1" class="col-sm-2 col-form-label" style="max-width: 15%;">Search</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="query">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Dropdown Structure -->
+        <div class="split-row" *ngIf="station!=null">
+          <div class="col-md-12">
+            <div class="box-inn-sp ad-inn-page">
+              <div class="tab-inn ad-tab-inn">
+                <div class="table-responsive">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                    <thead>
+                      <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                          style="width: 202px;">Product
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" 
+                          style="width: 337px;">Total Litres
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" 
+                          style="width: 337px;">Total Sales
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Date Sold
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 50px;">Edit
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody> 
+                      <tr role="row" class="odd" *ngFor="let sale of station.data | search:'date,product,total_litres,total_sale' :query">
+                        <td class="sorting_1">{{sale.product}}</td>
+                        <td>{{sale.total_litres | number}}</td>
+                        <td>{{sale.total_sale | currency: '₦'}}</td>
+                        <td>{{sale.date}}</td>
+                        <td><a routerLink="./{{sale.user_id}}/{{sale.product_id}}/{{sale.date}}"><i class="fa fa-edit"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    

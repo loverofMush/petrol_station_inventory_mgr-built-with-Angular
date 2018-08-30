@@ -1,0 +1,49 @@
+
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Update Expense</h4> 
+  
+    <div class="row">
+      <div class="mt-4 col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <form #updateExpensesForm="ngForm" (ngSubmit)="updateExpense()">
+              <mat-form-field style="border-left: 0px;">
+                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.expense_date"  [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+              <hr/>
+              <mat-form-field style="border-left: 0px;">
+                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.expense_date"  [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+              <hr/>
+              <div class="form-group row">
+                <label for="inputAmount1" class="col-sm-2 col-form-label">Amount</label>
+                <div class="col-sm-10">
+                  <input type="text" name="amount" class="form-control" id="inputAmount1" [(ngModel)]="form.amount" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputAmount1" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                  <textarea style="background-color:black;color:white;"  class="form-control" [(ngModel)]='form.description' rows="30" cols="120">
+                    {{ form.description }}                             
+                  </textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                  <button type="button" style="position:  relative; left: -70px;" class="btn btn-warning" (click)="goBack()">go back</button>
+                  <button type="submit" style="float: right;" class="btn btn-primary" [disabled]="!updateExpensesForm.valid">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="mt-4 col-sm-8">
+    <div class="page-card page-card-admin">
+      <div class="page-card-com page-card-main">
+        <h4>All Dry Product Supplies</h4> 
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label for="inputSelect2" class="col-sm-2 col-form-label">Select outlet Station</label>
+              <select class="form-control" name="station" [class.selected]="station === selectedStation" (change)="stationChange($event)">
+                <option [ngValue]="null" disabled>-Select a station-</option>
+                <option *ngFor="let station of stations" [value]="station.id">
+                  {{station.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label for="inputTank1" class="col-sm-2 col-form-label" style="max-width: 15%;">Search</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="query">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="split-row" *ngIf="station!=null">
+          <div class="col-md-12">
+            <div class="box-inn-sp ad-inn-page">
+              <div class="tab-inn ad-tab-inn">
+                <div class="table-responsive" style="overflow: hidden">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                    <thead>
+                      <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                          style="width: 202px;">Product
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Stock Received
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Supply Price
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Date
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 50px;">Edit
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 50px;">Delete
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody> 
+                      <tr role="row" class="odd"  *ngFor="let supply of station.dryproductsupplies | search:'product,supply_date':query">
+                        <td><span class="list">{{supply.product}}</span></td>
+                        <td><span class="list">{{supply.inventory_received}}</span></td>
+                        <td><span class="list">{{supply.supply_price}}</span></td>
+                        <td><span class="list">{{supply.supply_date}}</span></td>
+                        <td><a routerLink="./{{supply.id}}"><i class="fa fa-edit"></i></a></td>
+                        <td><a href (click)="deleteSupply(supply)"><i class="fa fa-trash"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+
+

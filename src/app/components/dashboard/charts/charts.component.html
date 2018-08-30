@@ -1,0 +1,82 @@
+<div class="page-wrapper" style="min-height: 492px;">
+  <!-- Bread crumb -->
+  <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h3 class="text-primary">Dashboard</h3> 
+    </div>
+  </div>
+  <!-- End Bread crumb -->
+  <!-- Container fluid  -->
+  <div class="container-fluid">
+    <!-- Start Page Content -->
+    <div class="row">
+      <div style="width: 0px;">
+        <h1 style="font-size: 23px; color: #007bff!important;">Sales Revenue</h1>
+      </div>
+      <div class="col-md-3" *ngFor="let station of stations">
+        <h1>{{ station.name }}</h1>
+        <div class="card p-30" *ngFor="let s of station.data">
+          <div class="media">
+            <div class="media-body media-text-right">
+              <h2>{{ s.total_sale | currency: '₦' }}</h2>
+              <p class="m-b-0">{{s.product}}</p>
+              <span>{{s.month}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vertLine"></div>
+      <div class="col-md-3" *ngFor="let station of dryStations">
+        <h1>{{ station.name }}</h1>
+        <div class="card p-30" *ngFor="let s of station.data">
+          <div class="media">
+            <div class="media-body media-text-right">
+              <h2>{{ s.total_sale | currency: '₦' }}</h2>
+              <p class="m-b-0">{{s.product}}</p>
+              <span>{{s.month}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vertLine"></div>
+      <div style="width: 0px;">
+        <h1 style="font-size: 23px; color: #007bff!important;">Expenses</h1>
+      </div>
+      <div class="col-md-3" *ngFor="let station of stationExpenses">
+        <h1>{{ station.name }}</h1>
+        <div class="card p-30" *ngFor="let s of station.data">
+          <div class="media">
+            <div class="media-body media-text-right">
+              <h2>{{ s.total_expense | currency: '₦' }}</h2>
+              <span>{{s.month}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row bg-white m-l-0 m-r-0 box-shadow ">
+    <!-- column -->
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Wet Product Sales Revenue</h4>
+          <div id="extra-area-chart" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+            <canvas id="canvas">{{ chart }}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Station Expenses</h4>
+          <div id="extra-area-chart" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+            <canvas id="myCanvas">{{ myChart }}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

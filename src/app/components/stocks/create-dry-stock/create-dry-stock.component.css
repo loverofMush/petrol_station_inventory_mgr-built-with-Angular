@@ -1,0 +1,100 @@
+.col-4 {
+    margin-left: 2.33333%;
+}
+
+@media (min-width: 576px) {
+    .col-sm-2 {
+        flex: 0 0 46.666667% !important;
+        max-width: 56.666667% !important;
+    }
+}
+
+select.form-control:not([size]):not([multiple]) {
+    margin-left: 20px;
+    width: 75%;
+    font-size: 1.3rem;
+}
+
+.pagecontent {
+    margin: 20px 300px;
+}
+
+.maintitle {
+    background-color: #EEE;
+    height: 180px;
+    border-bottom: 1px solid #CCC;
+    background: linear-gradient(to right, rgba(44,83,158,1) 0%,rgba(44,83,158,1) 100%);
+    text-align: center;
+}
+
+.maintitle div {
+    display: inline-block;
+    color: #FFF;
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 180px;
+}
+
+.maintext {
+    margin-bottom: 20px;
+}
+
+.normalmode {
+    margin-bottom: 280px;
+}
+
+.inlinemode {
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .pagecontent {
+        margin: 20px 10px;
+    }
+}
+
+.col-form-label {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.form-control {
+    font-size: 1.3rem;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+    font-size: 1.175rem;
+    font-weight: 600;
+}
+
+.mydp .selbtngroup {
+    height: 35px! important;
+}
+
+.mydp .selectiongroup {
+    background-color: none! important;
+}
+
+span.today {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+span.date {
+    font-size: 20px;
+    font-weight: 500
+}
+
+.card-header {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.mat-icon-button {
+    font-size: 20px! important;
+}
+
+.mat-input-element {
+    font-size: 20px! important;
+}

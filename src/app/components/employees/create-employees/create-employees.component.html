@@ -1,0 +1,92 @@
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Add New Employee</h4> 
+  
+    <div class="row">
+      <div class="mt-4 col-sm-4">
+        <div class="card">
+          <div class="card-header"></div>
+          <div class="card-body">
+            <form #newEmployeeForm="ngForm" (ngSubmit)="saveEmployee(newEmployeeForm)">
+              <div class="form-group row">
+                <label for="inputFirst1" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" name="first" class="form-control" id="inputFirst1" [(ngModel)]="form.firstName" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSecond1" class="col-sm-2 col-form-label">Middle Name</label>
+                <div class="col-sm-10">
+                  <input type="text" name="second" class="form-control" id="inputSecond1" [(ngModel)]="form.secondName" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputLast1" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input type="text" name="last" class="form-control" id="inputLast1" [(ngModel)]="form.lastName" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPhone1" class="col-sm-2 col-form-label">Phone</label>
+                <div class="col-sm-10">
+                  <input type="phone" name="phone" class="form-control" id="inputPhone1" [(ngModel)]="form.phone" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSalary1" class="col-sm-2 col-form-label">Salary</label>
+                <div class="col-sm-10">
+                  <input type="number" name="salary" class="form-control" id="inputSalary1" [(ngModel)]="form.salary" required>
+                </div>
+              </div>
+              <mat-form-field style="border-left: 0px;">
+                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.date_of_birth"  [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+              <div class="form-group row">
+                <label for="inputAddress1" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                  <input type="text" name="address" class="form-control" id="inputAddress1" [(ngModel)]="form.address" required>
+                </div>
+              </div>
+              <mat-form-field style="border-left: 0px;">
+                  <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.date_hired"  [ngModelOptions]="{standalone: true}">
+                  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                  <mat-datepicker #dp></mat-datepicker>
+                </mat-form-field>
+              <div class="form-group row">
+                <label for="inputSelect2" class="col-sm-2 col-form-label">Employee Station</label>
+                <select class="form-control" name="dry_product_sub_id" [class.selected]="station === selectedStation" [(ngModel)]="form.station_id" (change)="stationChange($event)">
+                  <option [ngValue]="null" disabled>-Select a station-</option>
+                  <option id="station.id" *ngFor="let station of stations" [value]="station.id">
+                    {{station.name}}
+                  </option>
+                </select>
+              </div>
+              <input type="text" name="station" class="form-control" id="inputStation1" [(ngModel)]="form.station" required hidden>
+              <div class="form-group row">
+                <label for="inputSelect2" class="col-sm-2 col-form-label">Employee Level</label>
+                <select class="form-control" name="dry_product_sub_id" [class.selected]="level === selectedLevel" [(ngModel)]="form.employee_level_id" (change)="levelChange($event)">
+                  <option [ngValue]="null" disabled>-Select a level-</option>
+                  <option id="station.id" *ngFor="let level of levels" [value]="level.id">
+                    {{level.name}}
+                  </option>
+                </select>
+              </div>
+              <input type="text" name="cat" class="form-control" id="inputCategory1" [(ngModel)]="form.level" required hidden>
+              <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                  <button type="submit" style="float: right;" class="btn btn-primary" [disabled]="!newEmployeeForm.valid">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    
+    
+  
+  

@@ -1,0 +1,51 @@
+<div class="mt-4 col-8 offset-2 htsss">
+  <div class="card">
+    <div class="card-header">Create User</div>
+    <div class="card-body">
+      <form #createUserForm="ngForm" (ngSubmit)="onSubmit(createUserForm)">
+        <div class="form-group row">
+          <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" name="name" class="form-control" id="inputName3" placeholder="Name" [(ngModel)]="form.name" required>
+            <div class="alert alert-danger" [hidden]="!error.name">
+              {{ error.name }}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" [(ngModel)]="form.email" required>
+            <div class="alert alert-danger" [hidden]="!error.email">
+              {{ error.email }}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputSelect2" class="col-sm-2 col-form-label">Station</label>
+          <select name="station_id" [(ngModel)]="form.station_id" class="form-control">
+            <option [ngValue]="null" disabled>-Select a station-</option>
+            <option id="{{station.id}}" *ngFor="let station of stations" [value]="station.id">
+              {{station.name}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <label for="inputSelect3" class="col-sm-2 col-form-label">User Role</label>
+          <select name="role_id" [(ngModel)]="form.role_id" class="form-control" [class.selected]="station === selectedStation" (change)="stationChange($event)">
+            <option [ngValue]="null" disabled>-Select a role-</option>
+            <option id="{{role.id}}" *ngFor="let role of roles" [value]="role.id">
+              {{role.name}}
+            </option>
+          </select>
+        </div>
+        <input type="text" name="station_name" class="form-control" id="inputStation3" [(ngModel)]="form.station_name" required hidden>
+        <div class="form-group row">
+          <div class="col-sm-10 offset-2">
+            <button type="submit" class="btn btn-primary" [disabled]="!createUserForm.valid">Create User</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

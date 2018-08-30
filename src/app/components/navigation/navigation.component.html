@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light bg-light justify-content-between kifasf" *ngIf = "loggedIn && !isExpired">
+  <div>
+    <a class="navbar-brand">
+      <img src="assets/images/invicto_2.png" alt="logo" style="width: 110px;">
+    </a>
+  </div>
+  <div>
+    <a class="navbar-brand" routerLink="user-login" *ngIf = "!loggedIn">Login</a>
+    <a class="navbar-brand" href="#" (click)="logOut($event)" *ngIf = "loggedIn">LogOut</a>
+  </div>
+</nav>

@@ -1,0 +1,113 @@
+
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Add new Stock</h4> 
+  
+    <div class="row">
+      <div class="mt-4 col-sm-4">
+        <div class="card">
+          <div class="card-header">New Wet Stock</div>
+          <div class="card-body">
+            <form #stocksForm="ngForm" (ngSubmit)="saveStock(stocksForm)">
+              <mat-form-field style="border-left: 0px;">
+                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.stock_date"  [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+              <hr/>
+              <div class="form-group row">
+                <label for="inputSelect2" class="col-sm-2 col-form-label">Product</label>
+                <select class="form-control" name="wet_product_id" [class.selected]="product === selectedProduct" [(ngModel)]="form.wet_product_id" (change)="productChange($event)">
+                  <option [ngValue]="null" disabled>-Select a product-</option>
+                  <option id="product.id" *ngFor="let product of products" [value]="product.id">
+                    {{product.code}}
+                  </option>
+                </select>
+              </div>
+              <input type="text" name="product" class="form-control" id="inputProduct1" [(ngModel)]="form.product" required hidden>
+              <div class="form-group row">
+                <label for="inputTank1" class="col-sm-2 col-form-label">Tank</label>
+                <div class="col-sm-10">
+                  <input type="text" name="tank_code" class="form-control" id="inputTank1" [(ngModel)]="form.tank_code" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputStock1" class="col-sm-2 col-form-label">Opening Stock</label>
+                <div class="col-sm-10">
+                  <input type="text" name="opening_inventory" class="form-control" id="inputStock1" [(ngModel)]="form.opening_inventory" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputStock2" class="col-sm-2 col-form-label">Closing Stock</label>
+                <div class="col-sm-10">
+                  <input type="text" name="closing_inventory" class="form-control" id="inputStock2" [(ngModel)]="form.closing_inventory" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSold2" class="col-sm-2 col-form-label">Stock Received</label>
+                <div class="col-sm-10">
+                  <input type="text" name="stock_rcvd" (change)="stock_sold($event)" class="form-control" id="inputSold2" [(ngModel)]="form.stock_received" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSold1" class="col-sm-2 col-form-label">Stock Sold</label>
+                <div class="col-sm-10">
+                  <input type="text" name="stock_sold" class="form-control" id="inputSold1" [(ngModel)]="form.stock_sold" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                  <button type="submit" class="btn btn-primary" [disabled]="!stocksForm.valid">Add Sale</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 col-sm-8">
+        <div class="page-card page-card-admin">
+          <div class="page-card-com page-card-main">
+            <h4>Day sales</h4> 
+            <!-- Dropdown Structure -->
+            <div class="split-row">
+              <div class="col-md-12">
+                <div class="box-inn-sp ad-inn-page">
+                  <div class="tab-inn ad-tab-inn">
+                    <div class="table-responsive" style="overflow: hidden">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Product</th>
+                            <th>Tank</th>
+                            <th>Opening Stock</th>
+                            <th>Closing Stock</th>
+                            <th>Stock Received</th>
+                            <th>Stock Sold</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let stock of stocks">
+                            <td><span class="list">{{stock.product}}</span></td>
+                            <td><span class="list">{{stock.tank_code }}</span></td>
+                            <td><span class="list">{{stock.opening_inventory}}</span></td>
+                            <td><span class="list">{{stock.closing_inventory}}</span></td>
+                            <td><span class="list">{{stock.stock_received}}</span></td>
+                            <td><span class="list">{{stock.stock_sold}}</span></td>
+                            <td><span class="list">{{stock.stock_date}}</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

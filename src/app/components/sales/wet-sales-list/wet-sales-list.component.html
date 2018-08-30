@@ -1,0 +1,66 @@
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Day Sales</h4> 
+    <div class="split-row">
+      <div class="col-md-12">
+        <div class="box-inn-sp ad-inn-page">
+          <div class="tab-inn ad-tab-inn">
+            <div class="table-responsive" style="overflow: hidden">
+              <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                <thead>
+                  <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Sales Attendant
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Pump Number
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Opening Metre
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Closing Metre
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" 
+                      style="width: 207px;">Litres Sold
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 148px;">Amount
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 50px;">Edit
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 50px;">Delete
+                    </th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr role="row" class="odd" *ngFor="let sale of sales">
+                    <td><span class="list-img">{{sale.sales_attendant}}</span></td>
+                    <td><span class="list-img">{{sale.pump_code}}</span></td>
+                    <td><span class="list-img">{{sale.opening_metre}}</span></td>
+                    <td><span class="list-img">{{sale.closing_metre}}</span></td>
+                    <td><span class="list-img">{{sale.litres_sold | number}}</span></td>
+                    <td><span class="label label-primary">{{sale.cash_amt | currency: '₦'}}</span></td>
+                    <td><a routerLink="./edit-wet-sale/{{sale.id}}"><i class="fa fa-edit"></i></a></td>
+                    <td><a (click)="deleteSale(sale)"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

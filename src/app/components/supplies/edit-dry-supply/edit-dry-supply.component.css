@@ -1,0 +1,39 @@
+.col-4 {
+    margin-left: 2.33333%;
+}
+
+@media (min-width: 576px) {
+    .col-sm-2 {
+        flex: 0 0 46.666667% !important;
+        max-width: 56.666667% !important;
+    }
+}
+
+.col-form-label {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.form-control {
+    font-size: 1.3rem;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+    font-size: 1.175rem;
+    font-weight: 600;
+}
+
+.btn-warning, .btn-primary {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+span.today {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.card-header {
+    font-size: 30px;
+    font-weight: 500;
+}

@@ -1,0 +1,93 @@
+
+<div class="row">
+  <div class="mt-4 col-sm-8">
+    <div class="page-card page-card-admin">
+      <div class="page-card-com page-card-main">
+        <h4>All Station Employees</h4> 
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group row">
+              <label for="inputTank1" class="col-sm-2 col-form-label" style="max-width: 15%;">Search</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="query">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="split-row">
+          <div class="col-md-12">
+            <div class="box-inn-sp ad-inn-page">
+              <div class="tab-inn ad-tab-inn">
+                <div class="table-responsive">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                    <thead>
+                      <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                          style="width: 202px;">ID
+                        </th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                          style="width: 202px;">First Name
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Last Name
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Station
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Level
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Salary
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Phone
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 148px;">Date Hired
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 50px;">Edit
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                          rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                          style="width: 50px;">Delete
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody> 
+                      <tr role="row" class="odd" *ngFor="let employee of employees | search:'id,firstName,lastName,station,level,phone,date_hired,salary':query">
+                        <td><span class="list">{{employee.id}}</span></td>
+                        <td><span class="list">{{employee.firstName}}</span></td>
+                        <td><span class="list">{{employee.lastName}}</span></td>
+                        <td><span class="list">{{employee.station}}</span></td>
+                        <td><span class="list">{{employee.level}}</span></td>
+                        <td><span class="list">{{employee.salary}}</span></td>
+                        <td><span class="list">{{employee.phone}}</span></td>
+                        <td><span class="list">{{employee.date_hired}}</span></td>
+                        <td><a routerLink="./{{employee.id}}"><i class="fa fa-edit"></i></a></td>
+                        <td><a (click)="deleteEmployee(employee)"><i class="fa fa-trash"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+

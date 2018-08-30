@@ -1,0 +1,59 @@
+
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Update Dry Stock</h4> 
+  
+    <div class="row">
+      <div class="mt-4 col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <form #updateDryStocksForm="ngForm" (ngSubmit)="updateDryStock()">
+              <mat-form-field style="border-left: 0px;">
+                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.stock_date"  [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+              <hr/>
+              <div class="form-group row">
+                <label for="inputProduct1" class="col-sm-2 col-form-label">Product</label>
+                <div class="col-sm-10">
+                  <input type="text" name="tank_code" class="form-control" id="inputProduct1" [(ngModel)]="form.product" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputStock1" class="col-sm-2 col-form-label">Opening Stock</label>
+                <div class="col-sm-10">
+                  <input type="text" name="opening_inventory" class="form-control" id="inputStock1" [(ngModel)]="form.opening_inventory" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputStock2" class="col-sm-2 col-form-label">Closing Stock</label>
+                <div class="col-sm-10">
+                  <input type="text" name="closing_inventory" class="form-control" id="inputStock2" [(ngModel)]="form.closing_inventory" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSold2" class="col-sm-2 col-form-label">Stock Received</label>
+                <div class="col-sm-10">
+                  <input type="text" name="stock_rcvd" (change)="stock_sold($event)" class="form-control" id="inputSold2" [(ngModel)]="form.stock_received" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputSold1" class="col-sm-2 col-form-label">Stock Sold</label>
+                <div class="col-sm-10">
+                  <input type="text" name="stock_sold" class="form-control" id="inputSold1" [(ngModel)]="form.stock_sold" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                  <button type="button" style="position:  relative; left: -70px;" class="btn btn-warning" (click)="goBack()">go back</button>
+                  <button type="submit" style="float: right;" class="btn btn-primary" [disabled]="!updateDryStocksForm.valid">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

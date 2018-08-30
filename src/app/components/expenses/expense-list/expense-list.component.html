@@ -1,0 +1,52 @@
+
+<div class="page-card page-card-admin">
+  <div class="page-card-com page-card-main">
+    <h4>Day Expenses</h4> 
+    <!-- Dropdown Structure -->
+    <div class="split-row">
+      <div class="col-md-12">
+        <div class="box-inn-sp ad-inn-page">
+          <div class="tab-inn ad-tab-inn">
+            <div class="table-responsive">
+              <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                <thead>
+                  <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" 
+                      style="width: 202px;">Expense Category
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 148px;">Amount
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 148px;">Date
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 50px;">Edit
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 50px;">Delete
+                    </th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr role="row" class="odd" *ngFor="let s of expenses">
+                    <td><span class="list">{{s.expense_type}}</span></td>
+                    <td><span class="list">{{s.amount | currency: '₦'}}</span></td>
+                    <td><span class="list">{{s.expense_date}}</span></td>
+                    <td><a routerLink="./{{s.id}}"><i class="fa fa-edit"></i></a></td>
+                    <td><a (click)="deleteExpense(s)"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

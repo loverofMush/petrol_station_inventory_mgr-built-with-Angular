@@ -1,0 +1,170 @@
+
+<div class="sidenav">
+  <!--== USER INFO ==-->
+  <div class="sidenav-header">
+        
+  </div>
+  <!--== LEFT MENU ==-->
+  <div class="sidenav-inner">
+    <ul class="collapsible" data-collapsible="accordion">
+      <li *ngIf="isAdmin()">
+        <a [routerLinkActive]="['active']" data-toggle="tab" [routerLink]="['./admin-page']">
+          <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+        </a>
+      </li>
+      <li id="menu-item" class="has_sub">
+        <a>
+          <i class="fa fa-car" aria-hidden="true"></i> Sales
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a  data-toggle="tab" [routerLink]="['./sales/all-wet-sales']">Wet Product Sales</a></li>
+            <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a  data-toggle="tab" [routerLink]="['./sales/new-wetproduct-sale']">Wet Product Sale</a></li>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a  data-toggle="tab" [routerLink]="['./sales/all-dry-sales']">Dry Product Sales</a></li>
+            <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a  data-toggle="tab" [routerLink]="['./sales/new-dryproduct-sale']">Dry Product Sale</a></li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-1" class="has_sub" *ngIf="isAdmin()">
+        <a>
+          <i class="fa fa-database" aria-hidden="true"></i> Products
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./products/wet-products']">All wet products</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./products/create-wet-product']">New wet product</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./products/dry-products']">All dry products</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./products/create-dry-product']">New dry product</a></li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-2" class="has_sub">
+        <a>
+          <i class="fa fa-archive" aria-hidden="true"></i> Stock
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./stocks/all-wet-stocks']">All wet product stocks</a></li>
+            <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./stocks/create-wet-stock']">New wet product stocks</a></li>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./stocks/all-dry-stocks']">All dry product stocks</a></li>
+            <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./stocks/create-dry-stock']">New dry product stocks</a></li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-3" class="has_sub">
+        <a>
+          <i class="fa fa-truck" aria-hidden="true"></i> Supply
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./supplies/all-wet-purchases']">All wet product purchases</a></li>
+            <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./supplies/create-wet-purchase']">New wet product purchase</a></li>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./supplies/all-dry-supplies']">All dry product supplies</a></li>
+            <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./supplies/create-dry-supply']">New dry product supply</a></li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-i" class="has_sub" *ngIf="isAdmin()">
+        <a>
+          <i class="fa fa-user" aria-hidden="true"></i> Users
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li><a [routerLinkActive]="['active']" data-toggle="tab" [routerLink]="['./users/all-users']">All Users</a> </li>
+            <li><a [routerLinkActive]="['active']" data-toggle="tab" [routerLink]="['./users/create-user']">Add New user</a> </li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-4" class="has_sub" *ngIf="isAdmin()">
+        <a>
+          <i class="fa fa-list" aria-hidden="true"></i> Suppliers
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./suppliers/suppliers']">All supplier</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./suppliers/create-supplier']">New supplier</a></li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-5" class="has_sub" *ngIf="isAdmin()">
+        <a>
+          <i class="fa fa-list" aria-hidden="true"></i> Employees
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/all-employees']">All Employees</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/create-employee']">New Employee</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/all-employee-levels']">All Employee level</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/create-employee-level']">New Employee level</a></li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-6" class="has_sub">
+        <a>
+          <i class="fa fa-money" aria-hidden="true"></i> Expenses
+          <span class="arrow">
+            <i class="fa fa-angle-right"></i>
+            <i class="fa fa-angle-down"></i>
+          </span>
+        </a>
+        <div id="sub_menu">
+          <ul>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./expenses/all-expenses']">All Expenses</a></li>
+            <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./expenses/create-expense']">New Expense</a></li>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./expenses/all-expense-categories']">All Expenses category</a></li>
+            <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./expenses/create-expense-category']">New Expense category</a></li>
+          </ul>
+        </div>
+      </li>
+      <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./reports/suppliers']"><i class="fa fa-list-alt" aria-hidden="true"></i>Reports</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="page_content">
+  <router-outlet></router-outlet>
+  <div id="page-footer">
+    <div class="inner">
+      <div class="footer-bottom">
+        <div class="container">
+          <span id="policy" style="float: left;">
+            <a class="gt">Copyright</a>
+            <a class="gt">&copy; 2018</a>
+            <a class="gt" href="">@loverofMush</a>
+          </span>
+          <span id="business" style="float: right;">
+            <a class="gt" href="">Inventory Management App</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
