@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~plugins/bootstrap/dist/css//bootstrap.css';
-@import '~plugins/css/font-awesome.min.css';
 @import '~plugins/css/emphasize.css';
+@import '~plugins/css/font-awesome.min.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 .ng-invalid:not(form) {
