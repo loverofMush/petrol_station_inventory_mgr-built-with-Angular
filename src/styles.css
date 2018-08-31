@@ -1,8 +1,232 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~plugins/bootstrap/dist/css//bootstrap.css';
-@import '~plugins/css/emphasize.css';
 @import '~plugins/css/font-awesome.min.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.page_content {
+    background: #e3e8ea;
+    margin-left: 20%;
+    padding-top: .116666667in;
+    padding-right: .116666667in;
+    /*padding-bottom: .416666667in;*/
+    padding-left: .116666667in;
+    width: 80%;
+    float: left;
+    position: absolute;
+    top: 110px;
+    left: -0px;
+    min-height: 100%;
+    display:table-cell;
+}
+
+.page_content_inner {
+    margin-bottom: .15625in;
+    overflow: hidden;
+    position: relative;
+}
+
+.page_content_inner ul {
+    margin-bottom: 0pt;
+    padding-top: 0pc;
+    padding-bottom: 0pc;
+    padding-right: 0in;
+    padding-left: 0in;
+}
+
+ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.page_content_inner ul li {
+    padding-right: .052083333in;
+    float: left;
+    list-style-type: none;
+}
+
+.page_content_inner ul li a {
+    vertical-align: middle;
+    color: #495d65;
+    text-decoration: none;
+}
+
+.page_content_inner ul li a i {
+    padding-right: .020833333in;
+}
+
+.active-bre:before {
+    content: "/";
+    color: #333;
+    padding-top: 0;
+    padding-right: 5px;
+    padding-bottom: 0;
+}
+
+.page-back {
+    float: right !important;
+}
+
+.page-back a {
+    background: #13addb;
+    border-radius: 18.75pt;
+    padding-top: .1875pc;
+    padding-right: 6pt;
+    padding-bottom: .1875pc;
+    padding-left: 6pt;
+    font-size: 15px;
+    color: #fff !important;
+}
+
+li, a {
+    font-weight: 400;
+}
+
+.page-card-admin {
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 0in;
+    margin-left: 0in;
+    width: 100%;
+}
+
+.page-card {
+    margin-right: 12px;
+    /* margin-left: .75pc; */
+    border-radius: 3pt;
+    box-shadow: 0pt 1.5pt 0.25pc rgba(224,224,224,.8);
+    border-image: none;
+    border-top-color: #dadada;
+    border-right-color: #dadada;
+    border-bottom-color: #dadada;
+    border-left-color: #dadada;
+    border-top-width: .75pt;
+    border-bottom-width: .75pt;
+    border-right-style: solid;
+    border-left-width: .75pt;
+    background: #fff;
+    border-top-style: solid;
+    /* width: 58%; */
+    border-bottom-style: solid;
+    border-left-style: solid;
+    float: left;
+    overflow: hidden;
+    border-right-width: .0625pc;
+    position: relative;
+}
+
+/*
+.page-card-com {
+     background-color: #9fe0ae; 
+}
+*/
+.page-card-main {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.page-card-com h4 {
+    padding-top: .9375pc;
+    padding-right: .9375pc;
+    padding-bottom: .9375pc;
+    padding-left: .9375pc;
+    background: #253d52;
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 0in;
+    margin-left: 0in;
+    color: #fff;
+}
+
+.split-row {
+    /* background-color: white; */
+    display: block;
+    position: relative;
+}
+
+.split-row, textarea {
+    width: 100%;
+}
+
+/*
+.ad-inn-page {
+    margin-right: .15625in;
+    margin-bottom: 1.875pc;
+    margin-left: .15625in;
+}
+*/
+
+.box-inn-sp {
+    margin-bottom: 2.5pc;
+    border-image: none;
+    border-top-color: #e3e8ea;
+    border-right-color: #e3e8ea;
+    border-bottom-color: #e3e8ea;
+    border-left-color: #e3e8ea;
+    border-top-width: .010416667in;
+    border-right-width: .010416667in;
+    border-bottom-width: .010416667in;
+    border-left-width: .010416667in;
+    background: #fff;
+    /*border-top-style: solid;
+    border-right-style: solid;*/
+    border-bottom-style: solid;
+    /*border-left-style: solid;*/
+}
+
+.ad-tab-inn {
+    padding-top: 0pc;
+    padding-bottom: 0pc;
+    padding-right: 0pc;
+    padding-left: 0pc;
+}
+
+.tab-inn {
+    padding-top: .260416667in;
+    padding-right: .260416667in;
+    padding-bottom: .260416667in;
+    padding-left: .260416667in;
+}
+
+
+.mydp .selection,
+.mydp .weekdaytitle,
+.mydp .monthinput,
+.mydp .yearinput {
+    font-weight: normal;
+}
+
+.mydp .weekdaytitle {
+    color: #000;
+}
+
+.mydp,
+.mydp .selectiongroup,
+.mydp .selection,
+.mydp .selector {
+    border-radius: 4px;
+}
+
+.mydp .header {
+    border-radius: 4px 4px 0 0;
+}
+
+.mydp .caltable {
+    border-radius: 0 0 4px 4px;
+}
+
+.mydp .caltable tbody tr:nth-child(6) td:first-child {
+    border-bottom-left-radius: 4px;
+}
+
+.mydp .caltable tbody tr:nth-child(6) td:last-child {
+    border-bottom-right-radius: 4px;
+}
+
+.mydp .btnpicker {
+    border-radius: 0 4px 4px 0;
+}
 
 .ng-invalid:not(form) {
     border-left: 5px solid red;
@@ -18,6 +242,7 @@ html {
 
 html,body{
     height:100%;
+    width: 100%;
 }
 
 body{
