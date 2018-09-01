@@ -111,11 +111,6 @@ export class DailywetsaleComponent implements OnInit {
   handleError(error) {
     this.notify.error(error.error.error);
   }
-
-  deleteSale(sale: Sale): void {
-    this.sales = this.sales.filter(s => s !== sale);
-    this.salesService.deleteSale(sale).subscribe();
-  }
   
   litres_sold(e) {
     this.form.litres_sold = this.form.closing_metre - this.form.opening_metre

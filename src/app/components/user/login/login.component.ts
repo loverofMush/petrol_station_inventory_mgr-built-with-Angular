@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+    this.return = this.route.snapshot.queryParams['returnUrl'] || '/dashboard/expenses/create-expense';
   }
 
   onSubmit() {
@@ -46,9 +48,9 @@ export class LoginComponent implements OnInit {
   handleResponse(data) {
     this.tokenService.handle(data.access_token);
     if(this.tokenService.userRole() === 1) {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl(this.returnUrl);
     } else {
-      this.router.navigateByUrl('/dashboard/expenses/create-expense');
+      this.router.navigateByUrl(this.return);
     }
     this.auth.changeAuthStatus(true);
   }

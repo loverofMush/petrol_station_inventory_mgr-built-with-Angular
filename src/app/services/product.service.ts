@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product';
-import { Observable } from '../../../node_modules/rxjs/Observable';
+import { Observable, of } from '../../../node_modules/rxjs';
 import { HttpClient } from '@angular/common/http';
-import { tap } from '../../../node_modules/rxjs/operators/tap';
-import { catchError } from '../../../node_modules/rxjs/operators/catchError';
+import { catchError } from '../../../node_modules/rxjs/operators';
 import { SnotifyService } from '../../../node_modules/ng-snotify';
-import { of } from '../../../node_modules/rxjs/observable/of';
 
 @Injectable()
 export class ProductService {
 
   API = 'https://inventappapi.herokuapp.com/api';
+
   constructor(
     private http: HttpClient,
     private notify: SnotifyService

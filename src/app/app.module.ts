@@ -5,11 +5,6 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
-import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 
 import { AppComponent } from './app.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
@@ -74,7 +69,6 @@ import { RoleGuardService } from './guards/roleguard.service';
 import { ErrorsHandler } from './guards/errors-handler';
 import { SalesService } from './services/sales.service';
 import { ProductService } from './services/product.service';
-import { MyDateAdapter } from './date-format/my-date-adapter';
 import { StocksService } from './services/stocks.service';
 import { SearchPipe } from './search.pipe';
 import { SuppliesService } from './services/supplies.service';
@@ -154,11 +148,6 @@ import { EditDrySaleComponent } from './components/sales/edit-dry-sale/edit-dry-
     HttpClientModule,
     SnotifyModule,
     BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatMomentDateModule
   ],
   providers: [
     AuthenticationService,
@@ -181,13 +170,6 @@ import { EditDrySaleComponent } from './components/sales/edit-dry-sale/edit-dry-
     },
     SalesService,
     ProductService,
-    { 
-      provide: DateAdapter, 
-      useClass: MyDateAdapter
-    },
-    {
-      provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS
-    },
     StocksService,
     SuppliesService,
     DealerService,

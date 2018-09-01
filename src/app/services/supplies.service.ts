@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from '../../../node_modules/rxjs/Observable';
+import { Observable, of } from '../../../node_modules/rxjs';
 import { HttpClient } from '@angular/common/http';
-import { tap } from '../../../node_modules/rxjs/operators/tap';
-import { catchError } from '../../../node_modules/rxjs/operators/catchError';
+import { catchError } from '../../../node_modules/rxjs/operators';
 import { SnotifyService } from '../../../node_modules/ng-snotify';
-import { of } from '../../../node_modules/rxjs/observable/of';
 import { Station } from '../model/station';
 import { Supply } from '../model/supply';
 
@@ -13,6 +11,7 @@ import { Supply } from '../model/supply';
 export class SuppliesService {
 
   API = 'https://inventappapi.herokuapp.com/api';
+
   constructor(
     private http: HttpClient,
     private notify: SnotifyService
@@ -105,7 +104,6 @@ export class SuppliesService {
     const url = `${this.API}/drysupplies-bydate/${id}`;
     return this.http.get<Supply[]>(url)
       .pipe(
-        tap(supplies => this.log(`fetched supplies id=${id}`)),
         catchError(this.handleError<Supply[]>(`getDrySuppliesByDate id=${id}`))
       );
   }

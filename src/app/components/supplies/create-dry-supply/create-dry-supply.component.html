@@ -9,11 +9,12 @@
           <div class="card-header">New Dry Supply</div>
           <div class="card-body">
             <form #drySupplyForm="ngForm" (ngSubmit)="saveDrySupply()">
-              <mat-form-field style="border-left: 0px;">
-                <input style="border-left: 0px;" matInput [matDatepicker]="dp" placeholder="Choose a date" [(ngModel)]="form.supply_date"  [ngModelOptions]="{standalone: true}">
-                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                <mat-datepicker #dp></mat-datepicker>
-              </mat-form-field>
+              <div class="form-group row">
+                <label for="inputDate1" class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                  <input type="date" name="date" class="form-control" id="inputDate1" [(ngModel)]="form.supply_date" required>
+                </div>
+              </div>
               <hr/>
               <div class="form-group row">
                 <label for="inputSelect2" class="col-sm-2 col-form-label">Product</label>

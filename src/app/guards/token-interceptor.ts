@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
 import { TokenService } from '../services/token.service';
  

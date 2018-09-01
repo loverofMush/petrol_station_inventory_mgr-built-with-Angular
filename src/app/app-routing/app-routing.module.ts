@@ -57,17 +57,17 @@ import { EditWetSaleComponent } from '../components/sales/edit-wet-sale/edit-wet
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'user-login', redirectTo: '', pathMatch: 'full', canActivate: [BeforeLoginService]},
+  {path: 'user-login', redirectTo: '', pathMatch: 'full'},
   {path: 'request-password-reset', component: RequestResetComponent},
   {path: 'response-password-reset', component: ResponseResetComponent},
   {path: 'dashboard', component: AdminSidebarComponent, canActivate: [AfterLoginService], children: [
-    {path: '', component: ChartsComponent},
-    {path: 'admin-page', redirectTo: '', pathMatch: 'full', canActivate: [AfterLoginService, RoleGuardService],
+    {path: '', component: ChartsComponent, canActivate: [RoleGuardService],
       data: {
         expectedRole: 1
       }
     },
-    {path: 'users', canActivate: [AfterLoginService, RoleGuardService], 
+    {path: 'admin-page', redirectTo: '', pathMatch: 'full'},
+    {path: 'users', canActivate: [RoleGuardService], 
       data: { 
         expectedRole: 1
       },
@@ -76,7 +76,7 @@ const appRoutes: Routes = [
         {path: 'create-user', component: CreateUserComponent }
       ]
     },
-    {path: 'sales', canActivate: [AfterLoginService], 
+    {path: 'sales',
       children: [
         {path: 'new-wetproduct-sale', component: NewwetproductsaleComponent}, 
         {path: 'new-wetproduct-sale/:id', component: DailywetsaleComponent},
@@ -114,7 +114,7 @@ const appRoutes: Routes = [
         }
       ]
     },
-    {path: 'products', canActivate: [AfterLoginService, RoleGuardService],
+    {path: 'products', canActivate: [RoleGuardService],
       data: {
         expectedRole: 1
       },
@@ -127,7 +127,7 @@ const appRoutes: Routes = [
         {path: 'create-dry-product', component: CreateDryProductComponent}
       ]
     },
-    {path: 'stocks', canActivate: [AfterLoginService], 
+    {path: 'stocks', canActivate: [RoleGuardService],
       children: [
         {path: 'all-wet-stocks', component: WetProductStockComponent, canActivate: [RoleGuardService], 
           data: {
@@ -145,7 +145,7 @@ const appRoutes: Routes = [
         {path: 'create-dry-stock', component: CreateDryStockComponent}
       ]
     },
-    {path: 'supplies', canActivate: [AfterLoginService], 
+    {path: 'supplies', 
       children: [
         {path: 'all-wet-purchases', component: WetProductPurchaseComponent, canActivate: [RoleGuardService], 
           data: {
@@ -163,7 +163,7 @@ const appRoutes: Routes = [
         {path: 'create-dry-supply', component: CreateDrySupplyComponent}
       ]
     },
-    {path: 'suppliers', canActivate: [AfterLoginService, RoleGuardService], 
+    {path: 'suppliers', canActivate: [RoleGuardService], 
       data: {
         expectedRole: 1
       },
@@ -173,7 +173,7 @@ const appRoutes: Routes = [
         {path: 'edit-supplier/:id', component: EditSupplierComponent},
       ]
     },
-    {path: 'expenses', canActivate: [AfterLoginService], 
+    {path: 'expenses',
       children: [
         {path: 'all-expenses', component: ExpensesComponent, canActivate: [RoleGuardService], 
           data: {
@@ -208,7 +208,7 @@ const appRoutes: Routes = [
         }
       ]
     },
-    {path: 'employees', canActivate: [AfterLoginService, RoleGuardService], 
+    {path: 'employees', canActivate: [RoleGuardService], 
       data: {
         expectedRole: 1
       }, 

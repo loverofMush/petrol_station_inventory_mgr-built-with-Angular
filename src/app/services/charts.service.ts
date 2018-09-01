@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { catchError } from '../../../node_modules/rxjs/operators/catchError';
-import { tap } from '../../../node_modules/rxjs/operators/tap';
+import { catchError } from '../../../node_modules/rxjs/operators';
 import { SnotifyService } from '../../../node_modules/ng-snotify';
 import { Station } from '../model/station';
-import { Observable } from '../../../node_modules/rxjs/Observable';
-import { of } from '../../../node_modules/rxjs/observable/of';
+import { Observable, of} from '../../../node_modules/rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

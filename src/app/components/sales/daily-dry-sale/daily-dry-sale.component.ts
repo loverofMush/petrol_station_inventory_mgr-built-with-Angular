@@ -91,7 +91,7 @@ export class DailyDrySaleComponent implements OnInit {
 
   getSales() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.salesService.getSalesByDate(id)
+    this.salesService.getDrySalesByDate(id)
       .subscribe(sales => {
       this.sales = sales;
     });
@@ -119,11 +119,6 @@ export class DailyDrySaleComponent implements OnInit {
 
   handleError(error) {
     this.notify.error(error.error.error);
-  }
-
-  deleteSale(sale: DrySale): void {
-    this.sales = this.sales.filter(s => s !== sale);
-    this.salesService.deleteDrySale(sale).subscribe();
   }
 
   litres_sold(e) {

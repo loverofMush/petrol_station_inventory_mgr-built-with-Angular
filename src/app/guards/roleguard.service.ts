@@ -10,8 +10,10 @@ export class RoleGuardService implements CanActivate {
     // this will be passed from the route config
     // on the data property
     const expectedRole = route.data.expectedRole;
+    console.log(expectedRole)
+    console.log(this.token.loggedIn())
     if (
-      !this.token.loggedIn() || 
+      this.token.loggedIn() || 
       this.token.userRole() !== expectedRole
     ) {
       window.alert("You do not have permission to view this page!");
