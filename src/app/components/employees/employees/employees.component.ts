@@ -24,7 +24,6 @@ export class EmployeesComponent implements OnInit {
     this.emp.getAllEmployees()
       .subscribe(employees => {
       this.employees = employees;
-      console.log(employees)
     });
   }
 

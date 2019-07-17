@@ -94,9 +94,11 @@ export class DailywetsaleComponent implements OnInit {
         this.handleError(error)
       }
     )
-    this.getSales();
-    this.totalLitres();
-    this.totalSales();
+    setTimeout(() => {
+      this.getSales();
+      this.totalLitres();
+      this.totalSales();
+    }, 5000)
   }
 
   handleResponse(res) {

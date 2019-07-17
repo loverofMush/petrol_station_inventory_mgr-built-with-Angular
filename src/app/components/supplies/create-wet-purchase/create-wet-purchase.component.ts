@@ -70,8 +70,10 @@ export class CreateWetPurchaseComponent implements OnInit {
         this.handleError(error)
       }
     )
-    purchaseForm.resetForm();
-    this.getPurchases();
+    setTimeout(() => {
+      purchaseForm.resetForm();
+      this.getPurchases();
+    }, 5000)
   }
 
   handleResponse(res) {

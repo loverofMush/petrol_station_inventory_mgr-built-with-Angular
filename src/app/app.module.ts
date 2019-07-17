@@ -12,7 +12,6 @@ import { LoginComponent } from './components/user/login/login.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SignupComponent } from './components/user/signup/signup.component';
 import { UsersComponent } from './components/user/users/users.component';
-import { NotificationComponent } from './components/notification/notification.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { CreateUserComponent } from './components/user/create-user/create-user.component';
@@ -90,7 +89,6 @@ import { EditDrySaleComponent } from './components/sales/edit-dry-sale/edit-dry-
     NavigationComponent,
     SignupComponent,
     UsersComponent,
-    NotificationComponent,
     RequestResetComponent,
     ResponseResetComponent,
     CreateUserComponent,

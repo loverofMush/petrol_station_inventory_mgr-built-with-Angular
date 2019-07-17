@@ -5,11 +5,9 @@ import { TokenService } from '../services/token.service';
 @Injectable()
 export class AfterLoginService implements CanActivate{
 
-  isExpired: boolean = false;
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    console.log(this.token.loggedIn())
-    if (!this.token.loggedIn()) {
+    if (!this.token.loggedIn() && !this.token.isChecked()) {
       return true;
     } 
 

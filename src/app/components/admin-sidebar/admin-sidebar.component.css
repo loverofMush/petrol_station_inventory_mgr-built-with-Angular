@@ -7,15 +7,10 @@
     z-index: 9;
     background: #1F262D;
     overflow: hidden;
-    padding-top: 110px;
+    padding-top: 80px;
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
     display: table-cell;
-}
-
-.collapsible li:hover #sub_menu {
-    display: block;
-    max-height: 200px;
 }
 
 .sidenav a {
@@ -93,19 +88,19 @@
     background: #fff0;
     border-image: none;
     border-bottom-color: #e3e8ea;
-    /* padding-top: .75pc; */
+    padding-bottom: 5pt;
+    padding-top: 5pt;
     padding-right: 15pt;
     /*border-bottom-style: solid;*/
-    padding-bottom: .75pc;
     border-bottom-width: .010416667in;
     padding-left: 15pt;
-    font-size: 18px;
+    font-size: 15px;
     display: block;
     text-decoration: none;
     font-weight: 500;
 }
 
-.sidenav-inner ul li a:click {
+.sidenav-inner ul li a:hover {
     background: #17a2b8;
     color: #fff;
 }
@@ -115,25 +110,7 @@
     margin-right: 8px;
 }
 
-.sidenav-inner ul li a span.arrow i:click {
-    color: #fff;
-}
-
 .sidenav-inner>ul>li.has_sub>a>span.arrow {
-    cursor: pointer;
-    height: 0px;
-    line-height: 0px;
-    position: relative;
-    margin: 0;
-    padding: 0 100px 0 0;
-    top: 0;
-    left: -50px;
-    width: 50px;
-    z-index: 9000;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.sidenav-inner>ul>li.on_sub>a>span.arrow {
     cursor: pointer;
     height: 0px;
     line-height: 0px;
@@ -164,33 +141,19 @@
     display: none;
 }
 
-.sidenav-inner>ul>li:hover.has_sub>a>span.arrow i.fa-angle-right, 
+.sidenav-inner>ul>li.has_sub.open_sub>a>span.arrow i.fa-angle-right, 
 .sidenav-inner>ul>li.has_sub>a>span.arrow i.fa-angle-down {
     display: none;
 }
 
-.sidenav-inner>ul>li:hover.has_sub>a>span.arrow i.fa-angle-down {
+.sidenav-inner>ul>li.has_sub.open_sub>a>span.arrow i.fa-angle-down {
     display: inline;
 }
 
-#sub_menu {
+#sub_menu, #sub_menu_1, #sub_menu_2, #sub_menu_3, #sub_menu_4, #sub_menu_5, #sub_menu_6, #sub_menu_i {
     display: none;
     /* padding-left: 50px; */
     background-color: #1a3d5d;
-}
-
-.sidenav-inner>ul>li.on_sub.in_sub>a>span.arrow i.fa-angle-right, 
-.sidenav-inner>ul>li.on_sub>a>span.arrow i.fa-angle-down {
-    display: none;
-}
-
-.sidenav-inner>ul>li.on_sub.in_sub>a>span.arrow i.fa-angle-down {
-    display: inline;
-}
-
-#in_menu {
-    display: none;
-    padding-left: 50px;
 }
 
 img {
@@ -268,6 +231,7 @@ span {
 #page-footer .inner .footer-bottom span a {
     text-decoration: none;
     font-weight: 500;
+    font-size: 13px;
 }
 
 #page-footer .inner .footer-bottom .left {

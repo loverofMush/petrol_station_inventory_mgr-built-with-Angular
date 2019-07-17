@@ -35,7 +35,6 @@ export class CreateUserComponent implements OnInit {
 
   constructor(
     private user: UserService,
-    private router: Router,
     private notify: SnotifyService
   ) { }
 
@@ -64,7 +63,6 @@ export class CreateUserComponent implements OnInit {
   getRoles() {  
     this.user.getRoles().subscribe(data => {
       this.roles = data;
-      console.log(data)
     });
   }
 

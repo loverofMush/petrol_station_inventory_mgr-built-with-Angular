@@ -21,6 +21,10 @@
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
                       rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                      style="width: 148px;">Description
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
+                      rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
                       style="width: 148px;">Date
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" 
@@ -37,6 +41,7 @@
                   <tr role="row" class="odd" *ngFor="let s of expenses">
                     <td><span class="list">{{s.expense_type}}</span></td>
                     <td><span class="list">{{s.amount | currency: '₦'}}</span></td>
+                    <td><span class="list">{{s.description}}</span></td>
                     <td><span class="list">{{s.expense_date}}</span></td>
                     <td><a routerLink="./{{s.id}}"><i class="fa fa-edit"></i></a></td>
                     <td><a (click)="deleteExpense(s)"><i class="fa fa-trash"></i></a></td>

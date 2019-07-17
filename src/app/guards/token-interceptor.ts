@@ -28,7 +28,6 @@ export class TokenInterceptor implements HttpInterceptor{
                 Authorization: `Bearer ${authToken}`  
             }
         });
-        console.log(request)
         return next.handle(request)
         .pipe(
             tap(
@@ -41,8 +40,7 @@ export class TokenInterceptor implements HttpInterceptor{
             finalize(() => {
               const elapsed = Date.now() - started;
               const msg = `${request.method} "${request.urlWithParams}"
-                 ${ok} in ${elapsed} ms.`;
-              console.log(msg);
+                ${ok} in ${elapsed} ms.`;
             })
         )
     }

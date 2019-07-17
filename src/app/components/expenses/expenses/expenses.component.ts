@@ -26,7 +26,6 @@ export class ExpensesComponent implements OnInit {
   getExpenses() {
     this.expense.getStationExpenses().subscribe(data => {
       this.stations = data;
-      console.log(data)
     });
   }
 

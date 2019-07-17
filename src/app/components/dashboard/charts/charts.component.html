@@ -11,14 +11,14 @@
     <!-- Start Page Content -->
     <div class="row">
       <div style="width: 0px;">
-        <h1 style="font-size: 23px; color: #007bff!important;">Sales Revenue</h1>
+        <h1 style="font-size: 20px; color: #007bff!important;">Sales Revenue</h1>
       </div>
       <div class="col-md-3" *ngFor="let station of stations">
         <h1>{{ station.name }}</h1>
-        <div class="card p-30" *ngFor="let s of station.data">
+        <div class="card p-30 cd" *ngFor="let s of station.data">
           <div class="media">
             <div class="media-body media-text-right">
-              <h2>{{ s.total_sale | currency: '₦' }}</h2>
+              <h2 style="color: beige;">{{ s.total_sale | currency: '₦' }}</h2>
               <p class="m-b-0">{{s.product}}</p>
               <span>{{s.month}}</span>
             </div>
@@ -28,10 +28,10 @@
       <div class="vertLine"></div>
       <div class="col-md-3" *ngFor="let station of dryStations">
         <h1>{{ station.name }}</h1>
-        <div class="card p-30" *ngFor="let s of station.data">
+        <div class="card p-30 cm" *ngFor="let s of station.data">
           <div class="media">
             <div class="media-body media-text-right">
-              <h2>{{ s.total_sale | currency: '₦' }}</h2>
+              <h2 style="color: beige;">{{ s.total_sale | currency: '₦' }}</h2>
               <p class="m-b-0">{{s.product}}</p>
               <span>{{s.month}}</span>
             </div>
@@ -40,14 +40,14 @@
       </div>
       <div class="vertLine"></div>
       <div style="width: 0px;">
-        <h1 style="font-size: 23px; color: #007bff!important;">Expenses</h1>
+        <h1 style="font-size: 20px; color: #007bff!important;">Expenses</h1>
       </div>
       <div class="col-md-3" *ngFor="let station of stationExpenses">
         <h1>{{ station.name }}</h1>
-        <div class="card p-30" *ngFor="let s of station.data">
+        <div class="card p-30 ci" *ngFor="let s of station.data">
           <div class="media">
             <div class="media-body media-text-right">
-              <h2>{{ s.total_expense | currency: '₦' }}</h2>
+              <h2 style="color: beige;">{{ s.total_expense | currency: '₦' }}</h2>
               <span>{{s.month}}</span>
             </div>
           </div>

@@ -5,7 +5,6 @@ import { AdminSidebarComponent } from '../components/admin-sidebar/admin-sidebar
 import { UsersComponent } from '../components/user/users/users.component';
 import { RequestResetComponent } from '../components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from '../components/password/response-reset/response-reset.component';
-import { BeforeLoginService } from '../guards/before-login.service';
 import { AfterLoginService } from '../guards/after-login.service';
 import { CreateUserComponent } from '../components/user/create-user/create-user.component';
 import { RoleGuardService } from '../guards/roleguard.service';
@@ -61,13 +60,13 @@ const appRoutes: Routes = [
   {path: 'request-password-reset', component: RequestResetComponent},
   {path: 'response-password-reset', component: ResponseResetComponent},
   {path: 'dashboard', component: AdminSidebarComponent, canActivate: [AfterLoginService], children: [
-    {path: '', component: ChartsComponent, canActivate: [RoleGuardService],
+    {path: '', component: ChartsComponent, canActivate: [AfterLoginService, RoleGuardService],
       data: {
         expectedRole: 1
       }
     },
     {path: 'admin-page', redirectTo: '', pathMatch: 'full'},
-    {path: 'users', canActivate: [RoleGuardService], 
+    {path: 'users', canActivate: [AfterLoginService, RoleGuardService], 
       data: { 
         expectedRole: 1
       },
@@ -76,7 +75,7 @@ const appRoutes: Routes = [
         {path: 'create-user', component: CreateUserComponent }
       ]
     },
-    {path: 'sales',
+    {path: 'sales', canActivate: [AfterLoginService], 
       children: [
         {path: 'new-wetproduct-sale', component: NewwetproductsaleComponent}, 
         {path: 'new-wetproduct-sale/:id', component: DailywetsaleComponent},
@@ -114,7 +113,7 @@ const appRoutes: Routes = [
         }
       ]
     },
-    {path: 'products', canActivate: [RoleGuardService],
+    {path: 'products', canActivate: [AfterLoginService, RoleGuardService],
       data: {
         expectedRole: 1
       },
@@ -127,7 +126,7 @@ const appRoutes: Routes = [
         {path: 'create-dry-product', component: CreateDryProductComponent}
       ]
     },
-    {path: 'stocks', canActivate: [RoleGuardService],
+    {path: 'stocks', canActivate: [AfterLoginService],
       children: [
         {path: 'all-wet-stocks', component: WetProductStockComponent, canActivate: [RoleGuardService], 
           data: {
@@ -145,7 +144,7 @@ const appRoutes: Routes = [
         {path: 'create-dry-stock', component: CreateDryStockComponent}
       ]
     },
-    {path: 'supplies', 
+    {path: 'supplies', canActivate: [AfterLoginService],
       children: [
         {path: 'all-wet-purchases', component: WetProductPurchaseComponent, canActivate: [RoleGuardService], 
           data: {
@@ -163,7 +162,7 @@ const appRoutes: Routes = [
         {path: 'create-dry-supply', component: CreateDrySupplyComponent}
       ]
     },
-    {path: 'suppliers', canActivate: [RoleGuardService], 
+    {path: 'suppliers', canActivate: [AfterLoginService, RoleGuardService], 
       data: {
         expectedRole: 1
       },
@@ -173,7 +172,7 @@ const appRoutes: Routes = [
         {path: 'edit-supplier/:id', component: EditSupplierComponent},
       ]
     },
-    {path: 'expenses',
+    {path: 'expenses', canActivate: [AfterLoginService],
       children: [
         {path: 'all-expenses', component: ExpensesComponent, canActivate: [RoleGuardService], 
           data: {
@@ -190,7 +189,7 @@ const appRoutes: Routes = [
             expectedRole: 1
           }
         },
-        {path: 'all-expense-category', component: ExpensesCategoryComponent, canActivate: [RoleGuardService], 
+        {path: 'all-expense-categories', component: ExpensesCategoryComponent, canActivate: [RoleGuardService], 
           data: {
             expectedRole: 1
           }
@@ -208,7 +207,7 @@ const appRoutes: Routes = [
         }
       ]
     },
-    {path: 'employees', canActivate: [RoleGuardService], 
+    {path: 'employees', canActivate: [AfterLoginService, RoleGuardService], 
       data: {
         expectedRole: 1
       }, 
@@ -216,7 +215,7 @@ const appRoutes: Routes = [
         {path: 'all-employees', component: EmployeesComponent},
         {path: 'all-employees/:id', component: EditEmployeeComponent},
         {path: 'create-employee', component: CreateEmployeesComponent},
-        {path: 'all-employee-level', component: EmployeesLevelComponent},
+        {path: 'all-employee-levels', component: EmployeesLevelComponent},
         {path: 'create-employee-level', component: CreateEmployeeLevelComponent},
         {path: 'edit-employee-level/:id', component: EditEmployeeLevelComponent}
       ]

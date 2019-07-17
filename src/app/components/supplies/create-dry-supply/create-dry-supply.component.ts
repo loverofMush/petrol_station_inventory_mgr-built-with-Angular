@@ -61,7 +61,9 @@ export class CreateDrySupplyComponent implements OnInit {
         this.handleError(error)
       }
     )
-    this.getDrySupplies();
+    setTimeout(() => {
+      this.getDrySupplies();
+    }, 5000)
   }
 
   handleResponse(res) {

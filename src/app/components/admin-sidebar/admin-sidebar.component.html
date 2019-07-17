@@ -16,8 +16,8 @@
         <a>
           <i class="fa fa-car" aria-hidden="true"></i> Sales
           <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-right" (click)="sales_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="sales_close($event)"></i>
           </span>
         </a>
         <div id="sub_menu">
@@ -33,11 +33,11 @@
         <a>
           <i class="fa fa-database" aria-hidden="true"></i> Products
           <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-right" (click)="products_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="products_close($event)"></i>
           </span>
         </a>
-        <div id="sub_menu">
+        <div id="sub_menu_1">
           <ul>
             <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./products/wet-products']">All wet products</a></li>
             <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./products/create-wet-product']">New wet product</a></li>
@@ -48,13 +48,13 @@
       </li>
       <li id="menu-item-2" class="has_sub">
         <a>
-          <i class="fa fa-archive" aria-hidden="true"></i> Stock
+          <i class="fa fa-archive" aria-hidden="true"></i> Stocks
           <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-right" (click)="stocks_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="stocks_close($event)"></i>
           </span>
         </a>
-        <div id="sub_menu">
+        <div id="sub_menu_2">
           <ul>
             <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./stocks/all-wet-stocks']">All wet product stocks</a></li>
             <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./stocks/create-wet-stock']">New wet product stocks</a></li>
@@ -65,13 +65,13 @@
       </li>
       <li id="menu-item-3" class="has_sub">
         <a>
-          <i class="fa fa-truck" aria-hidden="true"></i> Supply
+          <i class="fa fa-truck" aria-hidden="true"></i> Supplies
           <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-right" (click)="supplies_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="supplies_close($event)"></i>
           </span>
         </a>
-        <div id="sub_menu">
+        <div id="sub_menu_3">
           <ul>
             <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./supplies/all-wet-purchases']">All wet product purchases</a></li>
             <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./supplies/create-wet-purchase']">New wet product purchase</a></li>
@@ -80,50 +80,18 @@
           </ul>
         </div>
       </li>
-      <li id="menu-item-i" class="has_sub" *ngIf="isAdmin()">
-        <a>
-          <i class="fa fa-user" aria-hidden="true"></i> Users
-          <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
-          </span>
-        </a>
-        <div id="sub_menu">
-          <ul>
-            <li><a [routerLinkActive]="['active']" data-toggle="tab" [routerLink]="['./users/all-users']">All Users</a> </li>
-            <li><a [routerLinkActive]="['active']" data-toggle="tab" [routerLink]="['./users/create-user']">Add New user</a> </li>
-          </ul>
-        </div>
-      </li>
       <li id="menu-item-4" class="has_sub" *ngIf="isAdmin()">
         <a>
           <i class="fa fa-list" aria-hidden="true"></i> Suppliers
           <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-right" (click)="suppliers_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="suppliers_close($event)"></i>
           </span>
         </a>
-        <div id="sub_menu">
+        <div id="sub_menu_4">
           <ul>
             <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./suppliers/suppliers']">All supplier</a></li>
             <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./suppliers/create-supplier']">New supplier</a></li>
-          </ul>
-        </div>
-      </li>
-      <li id="menu-item-5" class="has_sub" *ngIf="isAdmin()">
-        <a>
-          <i class="fa fa-list" aria-hidden="true"></i> Employees
-          <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
-          </span>
-        </a>
-        <div id="sub_menu">
-          <ul>
-            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/all-employees']">All Employees</a></li>
-            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/create-employee']">New Employee</a></li>
-            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/all-employee-levels']">All Employee level</a></li>
-            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/create-employee-level']">New Employee level</a></li>
           </ul>
         </div>
       </li>
@@ -131,11 +99,11 @@
         <a>
           <i class="fa fa-money" aria-hidden="true"></i> Expenses
           <span class="arrow">
-            <i class="fa fa-angle-right"></i>
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-right" (click)="expenses_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="expenses_close($event)"></i>
           </span>
         </a>
-        <div id="sub_menu">
+        <div id="sub_menu_6">
           <ul>
             <li *ngIf="isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./expenses/all-expenses']">All Expenses</a></li>
             <li *ngIf="!isAdmin()" [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./expenses/create-expense']">New Expense</a></li>
@@ -144,7 +112,38 @@
           </ul>
         </div>
       </li>
-      <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./reports/suppliers']"><i class="fa fa-list-alt" aria-hidden="true"></i>Reports</a></li>
+      <li id="menu-item-5" class="has_sub" *ngIf="isAdmin()">
+        <a>
+          <i class="fa fa-list" aria-hidden="true"></i> Employees
+          <span class="arrow">
+            <i class="fa fa-angle-right" (click)="employees_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="employees_close($event)"></i>
+          </span>
+        </a>
+        <div id="sub_menu_5">
+          <ul>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/all-employees']">All Employees</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/create-employee']">New Employee</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/all-employee-levels']">All Employee levels</a></li>
+            <li [routerLinkActive]="['active']" class="has_sub"><a data-toggle="tab" [routerLink]="['./employees/create-employee-level']">New Employee level</a></li>
+          </ul>
+        </div>
+      </li>
+      <li id="menu-item-i" class="has_sub" *ngIf="isAdmin()">
+        <a>
+          <i class="fa fa-user" aria-hidden="true"></i> Users
+          <span class="arrow">
+            <i class="fa fa-angle-right" (click)="users_open($event)"></i>
+            <i class="fa fa-angle-down" (click)="users_close($event)"></i>
+          </span>
+        </a>
+        <div id="sub_menu_i">
+          <ul>
+            <li><a [routerLinkActive]="['active']" data-toggle="tab" [routerLink]="['./users/all-users']">All Users</a> </li>
+            <li><a [routerLinkActive]="['active']" data-toggle="tab" [routerLink]="['./users/create-user']">Add New user</a> </li>
+          </ul>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
@@ -157,7 +156,7 @@
         <div class="container">
           <span id="policy" style="float: left;">
             <a class="gt">Copyright</a>
-            <a class="gt">&copy; 2018</a>
+            <a class="gt" style="padding-right: 15px;">&copy; 2018</a>
             <a class="gt" href="">@loverofMush</a>
           </span>
           <span id="business" style="float: right;">

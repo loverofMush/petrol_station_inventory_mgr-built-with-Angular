@@ -30,6 +30,7 @@ export class CreateExpensesComponent implements OnInit {
 
   ngOnInit() {
     this.getExpensesCat();
+    this.getAllExpenses();
   }
 
   getExpensesCat() {  
@@ -54,7 +55,9 @@ export class CreateExpensesComponent implements OnInit {
         this.handleError(error)
       } 
     )
-    this.getAllExpenses();
+    setTimeout(() => {
+      this.getAllExpenses();
+    }, 5000)
   }
 
   handleResponse(res) {

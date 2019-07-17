@@ -21,8 +21,8 @@ export class NavigationComponent implements OnInit , AfterContentChecked{
 
   ngOnInit() {
     this.auth.authStatus.subscribe(value => this.loggedIn = value);
-    
   }
+  
   ngAfterContentChecked() {
     this.isExpired = this.Token.isChecked()
   }

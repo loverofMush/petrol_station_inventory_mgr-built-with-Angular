@@ -106,8 +106,10 @@ export class DailyDrySaleComponent implements OnInit {
         this.handleError(error)
       }
     )
-    this.getSales();
-    this.totalSales();
+    setTimeout(() => {
+      this.getSales();
+      this.totalSales();
+    }, 5000)
   }
 
   handleResponse(res) {

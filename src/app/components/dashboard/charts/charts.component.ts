@@ -105,12 +105,10 @@ export class ChartsComponent implements OnInit {
     .subscribe(res => {
     
       for (var i=0; i<res['main'].length; i++) {
-        console.log()
 
         let amount = res['main'][0]['data'].map(res => res.amount)
         let station_name = res['main'][0].name
         let allMonths = res['main'][1]['data'].map(res => res.month)
-        console.log(station_name)
 
         let amount1 = res['main'][1]['data'].map(res => res.amount)
         let station_name1 = res['main'][1].name

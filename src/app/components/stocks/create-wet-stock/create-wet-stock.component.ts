@@ -62,8 +62,10 @@ export class CreateWetStockComponent implements OnInit {
         this.handleError(error)
       }
     )
-    stocksForm.resetForm();
-    this.getStocks();
+    setTimeout(() => {
+      stocksForm.resetForm();
+      this.getStocks();
+    }, 5000)
   }
 
   handleResponse(res) {

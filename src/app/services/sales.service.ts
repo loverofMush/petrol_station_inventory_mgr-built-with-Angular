@@ -35,6 +35,7 @@ export class SalesService {
   private log(message: string) {
     this.notify.error(`SalesService: ${message}`);
   }
+  
   getUserByStation(): Observable<User> {
     const url = `${this.API}/station-user`;
     return this.http.get<User>(url).pipe(

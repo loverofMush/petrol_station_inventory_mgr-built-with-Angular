@@ -53,7 +53,7 @@ export class ResponseResetComponent implements OnInit {
         {
           text: 'Okay',
           action: toster => {
-            _router.navigateByUrl('/dashboard'),
+            _router.navigateByUrl('/user-login'),
             this.notify.remove(toster.id)
           } 
         },

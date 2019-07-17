@@ -12,7 +12,7 @@
 select.form-control:not([size]):not([multiple]) {
     margin-left: 20px;
     width: 75%;
-    font-size: 1.3rem;
+    font-size: 15px;
 }
 
 .pagecontent {
@@ -56,11 +56,11 @@ select.form-control:not([size]):not([multiple]) {
 
 .col-form-label {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .form-control {
-    font-size: 1.3rem;
+    font-size: 1.0rem;
 }
 
 .btn-sm, .btn-group-sm > .btn {
@@ -91,10 +91,11 @@ span.date {
     font-weight: 500;
 }
 
-.mat-icon-button {
-    font-size: 20px! important;
+.page-card {
+    margin-bottom: 100px;
 }
 
-.mat-input-element {
-    font-size: 20px! important;
+textarea {
+    overflow: hidden;
+    resize: auto;
 }

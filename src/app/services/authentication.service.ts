@@ -11,11 +11,20 @@ export class AuthenticationService {
   private baseUrl = 'https://inventappapi.herokuapp.com/api';
   public authLevel: AuthResponseStatus = AuthResponseStatus.FRESH_USER;
 
-  private isLoggedIn = new BehaviorSubject<boolean>(this.Token.loggedIn());
+  private isLoggedIn = new BehaviorSubject<boolean>(this.tokenAvailable());
+  
+  private tokenAvailable(): boolean {
+    return !!this.Token.get();
+  }
+  
   authStatus = this.isLoggedIn.asObservable();
-
+  
   changeAuthStatus(value : boolean) {
+    let currentUser = this.Token.get(); 
+    if (!currentUser) { } 
     this.isLoggedIn.next(value);
+    return this.authStatus;
+    
   }
 
   constructor(

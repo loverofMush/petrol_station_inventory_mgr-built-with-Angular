@@ -9,15 +9,16 @@
     }
 }
 
+@media (min-width: 768px) {
+    .col-md-12 {
+        padding-right: 0px;
+    }
+}
+
 select.form-control:not([size]):not([multiple]) {
     margin-left: 20px;
     width: 75%;
-    font-size: 1.3rem;
-}
-
-figure{
-    width: 250px;
-    font-weight: 500;
+    font-size: 15px;
 }
 
 .pagecontent {
@@ -61,11 +62,11 @@ figure{
 
 .col-form-label {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .form-control {
-    font-size: 1.3rem;
+    font-size: 1.0rem;
 }
 
 .btn-sm, .btn-group-sm > .btn {
@@ -96,10 +97,65 @@ span.date {
     font-weight: 500;
 }
 
-.mat-icon-button {
-    font-size: 20px! important;
+.page-card {
+    margin-bottom: 100px;
 }
 
-.mat-input-element {
-    font-size: 20px! important;
+h4 {
+    font-size: 1.3rem;
+}
+
+figure {
+    width: 150px;
+    font-size: 15px;
+}
+
+textarea {
+    overflow: hidden;
+    resize: auto;
+}
+
+.tab-inn {
+    padding-right: .0in;
+    padding-left: .0in;
+}
+
+.table thead th {
+    color: #dc8b35;
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    font-size: 14px;
+}
+
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+
+table.dataTable td, table.dataTable th {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    font-size: 13px;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
 }

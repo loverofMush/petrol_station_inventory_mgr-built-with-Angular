@@ -71,7 +71,6 @@ export class CreateEmployeesComponent implements OnInit {
 
   handleResponse(res) {
     this.notify.success(res.data, {timeout:0});
-    
   }
 
   handleError(error) {
